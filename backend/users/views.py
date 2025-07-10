@@ -14,3 +14,9 @@ class RegisterView(APIView):
             return Response({'error': 'El usuario ya existe'}, status=status.HTTP_400_BAD_REQUEST)
         user = User.objects.create_user(username=username, password=password)
         return Response({'message': 'Usuario creado con éxito'}, status=status.HTTP_201_CREATED)
+    
+
+class LoginView(APIView):
+    def post(self, request):
+        # Aquí va la lógica de autenticación
+        return Response({"message": "Login exitoso"}, status=status.HTTP_200_OK)
