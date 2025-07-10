@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/raultovar/Documents/Cecytem/Curso Cecytem/Curso C/CECYTEMGit/Practica3_1/venv/bin/python" "$0" "$@"
+'''exec' "/Users/raultovar/Documents/Cecytem/Curso Cecytem/Curso C/CECYTEMGit/Practica3_1/netflix-auth-app/venv/bin/python" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
