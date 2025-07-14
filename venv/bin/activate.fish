@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/raultovar/Documents/Cecytem/Curso Cecytem/Curso C/CECYTEMGit/Practica3_1/netflix-auth-app/venv"
+set -gx VIRTUAL_ENV "/Users/raultovar/Documents/Cecytem/Curso Cecytem/Curso C/CECYTEMGit/Practica3_2/netflix-auth-app/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

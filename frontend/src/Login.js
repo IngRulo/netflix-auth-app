@@ -1,21 +1,25 @@
 // src/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
+
 const Login = () => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isRegistering
       ? "http://localhost:8000/api/register/" // endpoint para registro
       : "http://localhost:8000/api/login/"; // endpoint para login
+
     try {
       const response = await axios.post(url, {
         username,
         password,
       });
+
       if (isRegistering) {
         setMessage("Registro exitoso. Ahora puedes iniciar sesión.");
       } else {
