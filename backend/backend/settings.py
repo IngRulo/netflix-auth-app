@@ -38,16 +38,23 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'rest_framework',
+    'rest_framework.authtoken',
     'users',
     'corsheaders',
+    'movies',
 ]
 
 # Agregar configuración JWT
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
     )
 }
+
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

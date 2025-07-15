@@ -1,30 +1,31 @@
-// src/Login.js
-import React, { useState } from 'react';
-import axios from 'axios';
-
-const Login = () => {
+import React, { useState } from "react";
+import axios from "axios";
+const Login = ({ setToken }) => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isRegistering
-      ? "http://localhost:8000/api/register/" // endpoint para registro
-      : "http://localhost:8000/api/login/"; // endpoint para login
-
+      ? "http://localhost:8000/api/register/"
+      : "http://localhost:8000/api/token/"; // Cambia aquí para login JWT
     try {
       const response = await axios.post(url, {
         username,
         password,
       });
-
       if (isRegistering) {
         setMessage("Registro exitoso. Ahora puedes iniciar sesión.");
       } else {
-        setMessage("Inicio de sesión exitoso.");
-        console.log("Token recibido:", response.data);
+        // Solo JWT: el token viene en 'access'
+        const token = response.data.access;
+        if (token) {
+          setToken(token);
+          setMessage("Inicio de sesión exitoso.");
+        } else {
+          setMessage("No se recibió token. Verifica tus credenciales.");
+        }
       }
     } catch (error) {
       setMessage("Hubo un error. Verifica tus datos.");
